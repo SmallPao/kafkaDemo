@@ -1,3 +1,4 @@
+import Utils.RedisUtil
 import com.typesafe.config.ConfigFactory
 import kafka.common.TopicAndPartition
 import kafka.message.MessageAndMetadata
@@ -73,6 +74,9 @@ object kafkaDemo {
     stream.foreachRDD(rdd => {
       // rdd.foreach(println)
       val offsetRanges = rdd.asInstanceOf[HasOffsetRanges].offsetRanges
+
+      val client = RedisUtil.getJedis()
+      client.hincrBy("","",1)
 
 
 
