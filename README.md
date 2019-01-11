@@ -1,0 +1,1 @@
+# kafkaDemo使用MySQL作为kafka偏移量的记录工具
